@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import contactsReducer from './contactsReducer';
-import { Contact } from '../models';
+import contactsReducer from 'reducers/contactsReducer';
+import { Contact } from 'models';
 
 export default combineReducers<State | any>({
     contacts: contactsReducer

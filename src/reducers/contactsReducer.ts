@@ -1,5 +1,5 @@
-import { FETCH_CONTACTS } from '../actions/types';
-import { Action, Contact } from '../models';
+import { FETCH_CONTACTS } from 'actions/types';
+import { Action } from 'models'
 
 export default (state = [], action: Action<string, any>) => {
     switch (action.type) {

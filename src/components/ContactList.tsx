@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchContacts } from "../actions";
-import { Contact } from "../models";
-import { State } from "../reducers";
+import { fetchContacts } from "actions";
+import { Contact } from "models";
+import { State } from "reducers";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
 

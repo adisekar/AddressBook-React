@@ -1,2 +1,2 @@
-export * from './Contact';
-export * from './Action';
+export * from 'models/Contact';
+export * from 'models/Action';

@@ -1,5 +1,5 @@
-import client from "../apis/client";
-import { FETCH_CONTACTS } from './types';
+import client from "apis/client";
+import { FETCH_CONTACTS } from 'actions/types';
 
 // export const fetchContacts = () => async (dispatch, getState) => {
 //     // const response = await client.get("/?results=25");
