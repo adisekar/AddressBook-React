@@ -28,3 +28,8 @@ code {
 .navbar-brand {
   float: none;
 }
+
+.loader {
+  margin: 0px auto;
+  padding: 200px;
+}

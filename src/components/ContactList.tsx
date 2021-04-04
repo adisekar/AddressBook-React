@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { fetchContacts } from "../actions";
 import { Contact } from "../models";
 import { State } from "../reducers";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Loader from "react-loader-spinner";
 
 interface IConnectedProps {
     contacts: Array<Contact>;
@@ -41,7 +43,15 @@ class ContactList extends React.Component<IConnectedProps, any> {
         return (
             <div className="container" >
                 <div className="row">
-                    {contacts && contacts.length > 0 ? this.renderList() : null}
+                    {contacts && contacts.length > 0 ? this.renderList() :
+                        <div className="loader">
+                            <Loader
+                                type="Circles"
+                                color="#000000"
+                                height={200}
+                                width={200}
+                            />
+                        </div>}
                 </div>
             </div>
         );
