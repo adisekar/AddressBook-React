@@ -1,9 +1,15 @@
 import React from "react";
 import { connect } from "react-redux";
-
 import { fetchContacts } from "../actions";
+import { Contact } from "../models";
+import { State } from "../reducers";
 
-class ContactList extends React.Component {
+interface IConnectedProps {
+    contacts: Array<Contact>;
+    fetchContacts: Function;
+}
+
+class ContactList extends React.Component<IConnectedProps, any> {
     componentDidMount() {
         this.props.fetchContacts();
     }
@@ -31,10 +37,11 @@ class ContactList extends React.Component {
     };
 
     render() {
+        const { contacts } = this.props;
         return (
             <div className="container" >
                 <div className="row">
-                    {this.renderList()}
+                    {contacts && contacts.length > 0 ? this.renderList() : null}
                 </div>
             </div>
         );
@@ -42,7 +49,7 @@ class ContactList extends React.Component {
     }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: State) => {
     return { contacts: state.contacts };
 };
 
