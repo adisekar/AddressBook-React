@@ -1,5 +1,6 @@
 import client from "apis/client";
-import { FETCH_CONTACTS } from 'actions/types';
+import { FETCH_CONTACTS, SELECT_CONTACT } from 'actions/types';
+import { Contact } from "models";
 
 // export const fetchContacts = () => async (dispatch, getState) => {
 //     // const response = await client.get("/?results=25");
@@ -11,9 +12,16 @@ import { FETCH_CONTACTS } from 'actions/types';
 // };
 
 export const fetchContacts = () => {
-    const response = client.get('/?results=25');
+    const response = client.get('/?results=10');
     return {
         type: FETCH_CONTACTS,
         payload: response
+    };
+};
+
+export const selectContact = (contact: Contact) => {
+    return {
+        type: SELECT_CONTACT,
+        payload: contact
     };
 };

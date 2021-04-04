@@ -1,10 +1,10 @@
-import { FETCH_CONTACTS } from 'actions/types';
+import { SELECT_CONTACT } from 'actions/types';
 import { Action } from 'models'
 
 export default (state = [], action: Action<string, any>) => {
     switch (action.type) {
-        case FETCH_CONTACTS:
-            return action.payload.data.results;
+        case SELECT_CONTACT:
+            return action.payload;
         default:
             return state;
     }

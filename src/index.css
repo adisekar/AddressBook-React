@@ -12,24 +12,48 @@ code {
     monospace;
 }
 
+.large-text {
+  font-size: 1.5rem;
+}
+
 .padding10 {
   padding: 10px;
 }
 
-.content {
-  padding-top: 70px;
+.content-body {
+  padding-top: 85px;
 }
 
-.navbar-header {
-  float: left;
-  text-align: center;
-  width: 100%;
+.centerAlign {
+  margin: auto;
 }
-.navbar-brand {
-  float: none;
+
+.centerAlignBtn {
+  margin: auto !important;
+  display: table !important;
 }
 
 .loader {
   margin: 0px auto;
   padding: 200px;
+}
+
+.item {
+  cursor: pointer;
+}
+
+.header:hover {
+  text-decoration: underline;
+}
+
+.ui.avatar.image {
+  width: 3em;
+  height: 3em;
+}
+a {
+  color: #ffffff;
+}
+
+a:hover {
+  color: #ffffff;
 }

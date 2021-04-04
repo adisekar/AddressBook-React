@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchContacts } from "actions";
+import { fetchContacts, selectContact } from "actions";
 import { Contact } from "models";
 import { State } from "reducers";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
@@ -9,6 +9,8 @@ import Loader from "react-loader-spinner";
 interface IConnectedProps {
     contacts: Array<Contact>;
     fetchContacts: Function;
+    selectContact: Function;
+    history: any;
 }
 
 class ContactList extends React.Component<IConnectedProps, any> {
@@ -16,44 +18,46 @@ class ContactList extends React.Component<IConnectedProps, any> {
         this.props.fetchContacts();
     }
 
+    onContactClick(contact: Contact) {
+        this.props.selectContact(contact);
+        this.props.history.push('/details')
+    }
+
     renderList() {
-        return this.props.contacts.map(contact => {
-            const { name, picture, email } = contact;
-            return (
-                name &&
-                < div key={email} className="col-md-6 padding10" >
-                    <div className="media">
-                        <div className="media-left">
-                            <a href="#">
-                                <img className="media-object" src={picture.thumbnail} alt={picture.medium} />
-                            </a>
-                        </div>
-                        <div className="media-body">
-                            <h4 className="media-heading padding10">{`${name.title} ${name.first} ${name.last}`}</h4>
-                        </div>
-                    </div>
-                </div >
-            );
-        }
-        )
+        const { contacts } = this.props;
+        return (
+            <div className="ui stackable one column grid">
+                <div className="column ui relaxed divided items">
+                    {contacts.map(contact => {
+                        const { name, picture, email } = contact;
+                        return (
+                            name &&
+
+                            <div key={email} className="item" onClick={() => this.onContactClick(contact)}>
+                                <img className="ui avatar image" src={picture.medium} alt={picture.medium} />
+                                <div className="content">
+                                    <a className="header">{`${name.title} ${name.first} ${name.last}`}</a>
+                                </div>
+                            </div>
+                        );
+                    })}
+                </div>
+            </div>
+        );
     };
 
     render() {
         const { contacts } = this.props;
         return (
-            <div className="container" >
-                <div className="row">
-                    {contacts && contacts.length > 0 ? this.renderList() :
-                        <div className="loader">
-                            <Loader
-                                type="Circles"
-                                color="#000000"
-                                height={200}
-                                width={200}
-                            />
-                        </div>}
-                </div>
-            </div>
+            contacts && contacts.length > 0 ? this.renderList() :
+                <div className="loader">
+                    <Loader
+                        type="Circles"
+                        color="#000000"
+                        height={200}
+                        width={200}
+                    />
+                </div >
         );
 
     }
@@ -63,4 +67,4 @@ const mapStateToProps = (state: State) => {
     return { contacts: state.contacts };
 };
 
-export default connect(mapStateToProps, { fetchContacts })(ContactList);
+export default connect(mapStateToProps, { fetchContacts, selectContact })(ContactList);

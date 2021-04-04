@@ -3,6 +3,8 @@ export interface Contact {
     name: Name;
     picture: Picture;
     email: string;
+    phone: string;
+    cell: string;
 }
 
 export interface Name {

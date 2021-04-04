@@ -1,18 +1,21 @@
 import React from "react";
 import ContactList from 'components/ContactList';
+import ContactDetails from 'components/ContactDetails';
+import { Route } from 'react-router-dom';
 
 function App() {
   return (
-    <div className='container-fluid'>
-      <nav className='navbar fixed-top navbar-dark bg-dark'>
-        <div className="navbar-header">
-          <div className='navbar-brand'>Address Book</div>
+    <>
+      <div className="ui fixed inverted menu">
+        <div className="ui container">
+          <div className="item centerAlign large-text">Address Book</div>
         </div>
-      </nav>
-      <div className='content'>
-        <ContactList />
       </div>
-    </div>
+      <div className='content-body'>
+        <Route exact path='/' component={ContactList} />
+        <Route path='/details' component={ContactDetails} />
+      </div>
+    </>
   );
 }
 
