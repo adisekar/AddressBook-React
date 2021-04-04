@@ -5,6 +5,7 @@ import { Contact } from "models";
 import { State } from "reducers";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
+import { Pagination } from 'semantic-ui-react'
 
 interface IConnectedProps {
     contacts: Array<Contact>;
@@ -24,25 +25,29 @@ class ContactList extends React.Component<IConnectedProps, any> {
     }
 
     renderList() {
-        const { contacts } = this.props;
+        const { contacts, fetchContacts } = this.props;
         return (
-            <div className="ui stackable one column grid">
-                <div className="column ui relaxed divided items">
-                    {contacts.map(contact => {
-                        const { name, picture, email } = contact;
-                        return (
-                            name &&
-
-                            <div key={email} className="item" onClick={() => this.onContactClick(contact)}>
-                                <img className="ui avatar image" src={picture.medium} alt={picture.medium} />
-                                <div className="content">
-                                    <a className="header">{`${name.title} ${name.first} ${name.last}`}</a>
+            <>
+                <div className="ui stackable one column grid">
+                    <div className="column ui relaxed divided items">
+                        {contacts.map(contact => {
+                            const { name, picture, email } = contact;
+                            return (
+                                name &&
+                                <div key={email} className="item" onClick={() => this.onContactClick(contact)}>
+                                    <img className="ui avatar image" src={picture.medium} alt={picture.medium} />
+                                    <div className="content">
+                                        <a className="header">{`${name.title} ${name.first} ${name.last}`}</a>
+                                    </div>
                                 </div>
-                            </div>
-                        );
-                    })}
+                            );
+                        })}
+                    </div>
+                    <div className="centered">
+                        <Pagination defaultActivePage={1} totalPages={10} onPageChange={(event, data) => fetchContacts(data.activePage)} />
+                    </div>
                 </div>
-            </div>
+            </>
         );
     };
 
