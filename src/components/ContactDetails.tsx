@@ -34,9 +34,11 @@ class ContactDetails extends React.Component<IConnectedProps, any> {
             <div className="ui stackable one column grid">
                 <div className="column">
                     {this.renderDetail()}
-                    <button className="ui secondary button centerAlignBtn">
-                        <Link to='/'>Back to Contact List</Link>
-                    </button>
+                    <div className="centerAlign">
+                        <button className="ui secondary button">
+                            <Link to='/'>Back to Contact List</Link>
+                        </button>
+                    </div>
                 </div>
             </div>
         );

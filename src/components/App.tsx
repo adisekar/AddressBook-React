@@ -8,7 +8,7 @@ function App() {
     <>
       <div className="ui fixed inverted menu">
         <div className="ui container">
-          <div className="item centerAlign large-text">Address Book</div>
+          <div className="item centerAlignHorizontal large-text">Address Book</div>
         </div>
       </div>
       <div className='content-body'>

@@ -37,14 +37,15 @@ class ContactList extends React.Component<IConnectedProps, any> {
                                 <div key={email} className="item" onClick={() => this.onContactClick(contact)}>
                                     <img className="ui avatar image" src={picture.medium} alt={picture.medium} />
                                     <div className="content">
-                                        <a className="header">{`${name.title} ${name.first} ${name.last}`}</a>
+                                        <a className="header">{`${name.first} ${name.last}`}</a>
                                     </div>
                                 </div>
                             );
                         })}
                     </div>
-                    <div className="centered">
+                    <div className="centerAlignHorizontal">
                         <Pagination defaultActivePage={1} totalPages={10} onPageChange={(event, data) => fetchContacts(data.activePage)} />
+                        <br /> <br />
                     </div>
                 </div>
             </>
@@ -55,7 +56,7 @@ class ContactList extends React.Component<IConnectedProps, any> {
         const { contacts } = this.props;
         return (
             contacts && contacts.length > 0 ? this.renderList() :
-                <div className="loader">
+                <div className="loader centerAlign">
                     <Loader
                         type="Circles"
                         color="#000000"

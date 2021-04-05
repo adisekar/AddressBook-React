@@ -12,7 +12,7 @@ import { Contact } from "models";
 // };
 
 export const fetchContacts = (page = 1) => {
-    const queryString = `/?page=${page}&results=10`;
+    const queryString = `/?page=${page}&results=10&seed=abc`;
     const response = client.get(queryString);
     return {
         type: FETCH_CONTACTS,
