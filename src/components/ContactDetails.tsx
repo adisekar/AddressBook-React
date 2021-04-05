@@ -5,7 +5,8 @@ import { State } from "reducers";
 import { Link } from 'react-router-dom';
 
 interface IConnectedProps {
-    selectedContact: Contact
+    selectedContact: Contact;
+    history: any;
 }
 
 class ContactDetails extends React.Component<IConnectedProps, any> {
@@ -30,14 +31,22 @@ class ContactDetails extends React.Component<IConnectedProps, any> {
     };
 
     render() {
+        // Return null if no selected contact is available and go back to contact list page
+        const { selectedContact } = this.props;
+        if (!selectedContact || Object.keys(selectedContact).length === 0) {
+            this.props.history.push('/');
+            return null;
+        }
         return (
             <div className="ui stackable one column grid">
                 <div className="column">
                     {this.renderDetail()}
                     <div className="centerAlign">
-                        <button className="ui secondary button">
-                            <Link to='/'>Back to Contact List</Link>
+                        <Link to='/'>
+                            <button className="ui secondary button">
+                                Back to Contact List
                         </button>
+                        </Link>
                     </div>
                 </div>
             </div>
