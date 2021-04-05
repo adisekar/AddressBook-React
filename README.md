@@ -35,6 +35,9 @@ https://master.d2g8c0v90mi2ue.amplifyapp.com/
    API to return the contacts ordered by name. (Did not want to do it in UI, as it will break pagination, or we need to load all the contacts all at once (bad for performance)) (1 week)
    More Unit Test and Integration tests (1 - 2 weeks)
    Containerize it and deploy to ECS/EKS
+   Localization/Internationalization (1 week)
+   Analytics Tracking (Omniture) (1 week)
+   Accessability Issues Fix
 
 6. Unit Tests
    npm run test
