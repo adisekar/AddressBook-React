@@ -31,13 +31,13 @@ https://master.d2g8c0v90mi2ue.amplifyapp.com/
    Pagination is also implemented
 
 5. More features:
-   Better styling (make it more pretty) ( 2 days)
-   API to return the contacts ordered by name. (Did not want to do it in UI, as it will break pagination, or we need to load all the contacts all at once (bad for performance)) (1 week)
-   More Unit Test and Integration tests (1 - 2 weeks)
+   Better styling (make it more pretty) ( 1 - 2 days)
+   API to return the contacts ordered by name. (Did not want to do ordering in UI, as it will break pagination, or we need to load all the contacts all at once (bad for performance)) (2 - 3 days)
+   More Unit Test and Integration tests (2- 3 days)
    Containerize it and deploy to ECS/EKS
-   Localization/Internationalization (1 week)
-   Analytics Tracking (Omniture) (1 week)
-   Accessability Issues Fix
+   Localization/Internationalization (1 - 2 days)
+   Analytics Tracking (Omniture) (2 - 3 days)
+   Accessability Issues Fix (1 - 2 days)
 
 6. Unit Tests
    npm run test
