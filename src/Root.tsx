@@ -12,7 +12,7 @@ interface IConnectedProps {
 const Root = ({ children, initialState = {} }: IConnectedProps) => {
 
     const composeEnhancers = (window && (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
-    const store = createStore(reducers, composeEnhancers(applyMiddleware(reduxPromise)));
+    const store = createStore(reducers, initialState, composeEnhancers(applyMiddleware(reduxPromise)));
 
     return (
         <Provider store={store}>

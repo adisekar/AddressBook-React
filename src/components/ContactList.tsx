@@ -16,12 +16,16 @@ interface IConnectedProps {
 
 class ContactList extends React.Component<IConnectedProps, any> {
     componentDidMount() {
-        this.props.fetchContacts();
+        const { contacts, fetchContacts } = this.props;
+        if (!contacts || contacts.length === 0) {
+
+            fetchContacts();
+        }
     }
 
     onContactClick(contact: Contact) {
         this.props.selectContact(contact);
-        this.props.history.push('/details')
+        this.props.history && this.props.history.push('/details')
     }
 
     renderList() {

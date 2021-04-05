@@ -13,8 +13,11 @@
     "@types/react-router-dom": "^5.1.7",
     "@types/redux-promise": "^0.5.29",
     "@types/semantic-ui": "^2.2.7",
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.0",
     "axios": "^0.19.2",
     "chokidar": "^3.5.1",
+    "enzyme": "^3.11.0",
+    "moxios": "^0.4.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-loader-spinner": "^4.0.0",
@@ -49,5 +52,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/enzyme": "^3.10.8",
+    "@types/moxios": "^0.4.10"
   }
 }

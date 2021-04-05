@@ -34,7 +34,7 @@ class ContactDetails extends React.Component<IConnectedProps, any> {
         // Return null if no selected contact is available and go back to contact list page
         const { selectedContact } = this.props;
         if (!selectedContact || Object.keys(selectedContact).length === 0) {
-            this.props.history.push('/');
+            this.props.history && this.props.history.push('/');
             return null;
         }
         return (
