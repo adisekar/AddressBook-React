@@ -5,6 +5,7 @@ Address Book
    npm start
 
 or
+npm run build
 cd server
 node index.js
 localhost:9000 (running express server with js bundle)
