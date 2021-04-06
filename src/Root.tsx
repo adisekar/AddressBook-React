@@ -3,6 +3,7 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import reduxPromise from 'redux-promise';
 import reducers from 'reducers';
+import ErrorBoundary from 'components/ErrorBoundary';
 
 interface IConnectedProps {
     children: any;
@@ -16,7 +17,9 @@ const Root = ({ children, initialState = {} }: IConnectedProps) => {
 
     return (
         <Provider store={store}>
-            {children}
+            <ErrorBoundary>
+                {children}
+            </ErrorBoundary>
         </Provider>
     );
 };

@@ -66,6 +66,7 @@ class ContactList extends React.Component<IConnectedProps, any> {
                         color="#000000"
                         height={200}
                         width={200}
+                        timeout={3000}
                     />
                 </div >
         );

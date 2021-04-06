@@ -29,6 +29,7 @@ https://master.d2g8c0v90mi2ue.amplifyapp.com/
    Axios is used for API calls. Redux Promise is used as middleware
    Jest/Enzyme/Moxios used for testing
    Pagination is also implemented
+   Loader spinner is implemented, till network api requests returns
 
 5. More features:
    Better styling (make it more pretty) ( 1 - 2 days)
@@ -38,6 +39,7 @@ https://master.d2g8c0v90mi2ue.amplifyapp.com/
    Localization/Internationalization (1 - 2 days)
    Analytics Tracking (Omniture) (1 - 2 days)
    Accessability Issues Fix (1 - 2 days)
+   Error handling framework
 
 6. Unit Tests
    npm run test
