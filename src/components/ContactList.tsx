@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchContacts, selectContact } from "actions";
+import { fetchContacts, selectContact, setPaginationValue } from "actions";
 import { Contact } from "models";
 import { State } from "reducers";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
@@ -9,8 +9,10 @@ import { Pagination } from 'semantic-ui-react'
 
 interface IConnectedProps {
     contacts: Array<Contact>;
+    currentPageNumer: number;
     fetchContacts: Function;
     selectContact: Function;
+    setPaginationValue: Function;
     history: any;
 }
 
@@ -23,13 +25,20 @@ class ContactList extends React.Component<IConnectedProps, any> {
         }
     }
 
+    onPaginationChange(page: any) {
+        const { fetchContacts, setPaginationValue } = this.props;
+        let pageNumber: number = page && parseInt(page);
+        setPaginationValue(pageNumber);
+        fetchContacts(pageNumber);
+    }
+
     onContactClick(contact: Contact) {
         this.props.selectContact(contact);
         this.props.history && this.props.history.push('/details')
     }
 
     renderList() {
-        const { contacts, fetchContacts } = this.props;
+        const { contacts, currentPageNumer } = this.props;
         return (
             <>
                 <div className="ui stackable one column grid">
@@ -48,7 +57,7 @@ class ContactList extends React.Component<IConnectedProps, any> {
                         })}
                     </div>
                     <div className="centerAlignHorizontal">
-                        <Pagination defaultActivePage={1} totalPages={10} onPageChange={(event, data) => fetchContacts(data.activePage)} />
+                        <Pagination defaultActivePage={currentPageNumer} totalPages={10} onPageChange={(event, data) => this.onPaginationChange(data.activePage)} />
                         <br /> <br />
                     </div>
                 </div>
@@ -75,7 +84,7 @@ class ContactList extends React.Component<IConnectedProps, any> {
 }
 
 const mapStateToProps = (state: State) => {
-    return { contacts: state.contacts };
+    return { contacts: state.contacts, currentPageNumer: state.currentPageNumer };
 };
 
-export default connect(mapStateToProps, { fetchContacts, selectContact })(ContactList);
+export default connect(mapStateToProps, { fetchContacts, selectContact, setPaginationValue })(ContactList);

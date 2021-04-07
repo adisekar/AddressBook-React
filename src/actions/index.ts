@@ -1,5 +1,5 @@
 import client from "apis/client";
-import { FETCH_CONTACTS, SELECT_CONTACT } from 'actions/types';
+import { FETCH_CONTACTS, SELECT_CONTACT, SET_PAGINATION_VALUE } from 'actions/types';
 import { Contact } from "models";
 
 // export const fetchContacts = () => async (dispatch, getState) => {
@@ -24,5 +24,12 @@ export const selectContact = (contact: Contact) => {
     return {
         type: SELECT_CONTACT,
         payload: contact
+    };
+};
+
+export const setPaginationValue = (pageNumber: number) => {
+    return {
+        type: SET_PAGINATION_VALUE,
+        payload: pageNumber
     };
 };
